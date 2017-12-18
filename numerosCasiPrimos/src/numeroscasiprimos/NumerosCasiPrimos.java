@@ -73,50 +73,50 @@ while ((primo) && (contador!=numero)){
                                 esPrimo = false;//se demostró que i no es primo.
                             }
                     }
-                            if(esPrimo){//Si es primo lo imprimo.
+                            if(esPrimo){//Si es primo 
                             //System.out.println(i);
-                            lista.add(i);
+                            lista.add(i);    //lo añadimos a una lista que contendrá solamente numeros primos (lista)
                             }
                             else
                             {
-                            lista2.add(i);
+                            lista2.add(i);   //Si no es primo lo añadimos a una lista que contendrá solamente numeros no primos (lista2)
                             }
             } 
   
         //System.out.println(lista.size());
         //System.out.println(lista.size());
-        casiPrimo(lista,lista2);
-  
+        casiPrimo(lista,lista2);   //Envío como parametros ambas listas; la que contiene numeros primos y la que contiene numeros no primos a la funcion casiPrimo(l1,l2)
+                                   //Funcion que determina que cuenta cuantos números de la lista de no primos son casi primos.
   }
 
-public static void casiPrimo(ArrayList<Integer> list1, ArrayList<Integer> list2)
+public static void casiPrimo(ArrayList<Integer> list1, ArrayList<Integer> list2) //Funcion que cuenta cuantos numeros de la lista de no primos son casi primos y recibe la lista de numeros primos y la lista de numeros no primos
 {
-    int contador=0;
-    int contadorCasiPrimo=0;
-    int residuo=0;
+    int contador=0; //Variable contador que verifica cuantos numeros primos dividen exactamente a cada uno de los numeros no primos
+    int contadorCasiPrimo=0; //Variable que lleva una cuenta del numero total de numeros casi primos encontrados en la lista de numeros no primos
+    int residuo=0;  //Almacena el residuo de la division de un numero no primo entre numero primo
     
-    for(int x = 0; x < list2.size(); x++)
+    for(int x = 0; x < list2.size(); x++) //Ciclo for que ayuda a recorrer la lista de numeros no primos
     {
-       for(int y = 0; y < list1.size(); y++) 
+       for(int y = 0; y < list1.size(); y++) //Ciclo for que ayuda a recorrer la lista de numeros primos
        {
-           if(list1.get(y)!=1)
+           if(list1.get(y)!=1)     //Si el numero primo que se encuentra en la lista es diferente a uno; haz lo siguiente!
            {
-           residuo = list2.get(x) % list1.get(y);
-           if(residuo==0)
+           residuo = list2.get(x) % list1.get(y); //Obtener el residuo del numero no primo en la posición x de lista de nums no primos entre el numero primo en la posicion y de la lista de nums primos
+           if(residuo==0) //Si residuo es igual igual a cero
            {
-               contador++;
+               contador++;  //Incrementa la variable contador en 1; esto quiere decir que se ha encontrado un numero primo que divide exactamente a un numero no primo
            }
            }
 
        }
-       if(contador==1)
+       if(contador==1)  //Si contador es igual igual a 1
        {
-         contadorCasiPrimo++;  
+         contadorCasiPrimo++;  //Hemos encontrado un numero casi primo y aumentamos la variable contadorCasiPrimo en 1 unidad.
        }
-        contador=0;   
+        contador=0;   //Regresamos la variable contador a cero ya que en el próximo ciclo dividirá el próximo número no primo de la lista entre todos los números primos de la otra lista.
     }
     
-    System.out.println("El numero de casi primos es: "+contadorCasiPrimo);
+    System.out.println("El numero de casi primos es: "+contadorCasiPrimo); //Imprime en consola el número de casi primos que se encontró en dicho rango.
    
 }
 
